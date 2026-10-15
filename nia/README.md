@@ -41,3 +41,7 @@ The pull request from `nia/twice-weekly-repayments` into `main` has three commit
 See the "Deployment" section of [PULL_REQUEST.md](PULL_REQUEST.md) and [release-notes.md](release-notes.md). In short: back up the database, deploy the build (the setting is off), enable the setting, convert one bi-weekly product to "every 3 days" and test it, then convert the rest. **Do not convert Hilton (HBW4).**
 
 **Rollback:** turn the setting off, or redeploy the previous build.
+
+## Related
+
+The down-payment issue noted in the pull request (HP products and Hilton getting fewer repayments than configured) is fixed in [nia-fineract-1.9.0-down-payment](https://github.com/Tashinga4/nia-fineract-1.9.0-down-payment). Apply it after this change.
