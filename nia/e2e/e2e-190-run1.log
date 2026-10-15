@@ -1,0 +1,57 @@
+[PASS] Setting 'repayment-steps-in-working-days' exists and is enabled
+       If enabled: loan repayments every N days are counted in working days (see Working Days), so non-working days are skipped and not counted
+[PASS] Working days are Mon-Sat, move to next working day
+       FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR,SA
+[PASS] 14 bi-weekly products converted to every 3 days
+       14: ['HP4B', '25wb', 'W6WB', 'H6BW', 'WC4B', '2W5B', 'G4WB', 'G5WB', 'SFBW', '2W6B', '5G5B', '2HB4', '2H8B', '5H8B']
+[PASS] Hilton and the 15 weekly products still repay in weeks
+       16 products, HBW4 every 2 weeks
+[FAIL] 2HB4 disbursed Mon 05 Oct: application = disbursed schedule, alternating pair
+       Thu 08/10 Mon 12/10 Thu 15/10 Mon 19/10 Thu 22/10 Mon 26/10
+[FAIL] 2HB4 disbursed Tue 06 Oct: application = disbursed schedule, alternating pair
+       Fri 09/10 Tue 13/10 Fri 16/10 Tue 20/10 Fri 23/10 Tue 27/10
+[FAIL] 2HB4 disbursed Wed 07 Oct: application = disbursed schedule, alternating pair
+       Sat 10/10 Wed 14/10 Sat 17/10 Wed 21/10 Sat 24/10 Wed 28/10
+[FAIL] 2HB4 disbursed Thu 08 Oct: application = disbursed schedule, alternating pair
+       Mon 12/10 Thu 15/10 Mon 19/10 Thu 22/10 Mon 26/10 Thu 29/10
+[FAIL] 2HB4 disbursed Fri 09 Oct: application = disbursed schedule, alternating pair
+       Tue 13/10 Fri 16/10 Tue 20/10 Fri 23/10 Tue 27/10 Fri 30/10
+[FAIL] 2HB4 disbursed Sat 10 Oct: application = disbursed schedule, alternating pair
+       Wed 14/10 Sat 17/10 Wed 21/10 Sat 24/10 Wed 28/10 Sat 31/10
+[PASS] G4WB (7-day minimum) disbursed Mon 05 Oct: first repayment Mon 12 Oct, then Mon/Thu
+       Mon 12/10 Thu 15/10 Mon 19/10 Thu 22/10 Mon 26/10 Thu 29/10 Mon 02/11 Thu 05/11
+[PASS] 2HB4 expected Thu 08 Oct, disbursed Fri 09 Oct: regenerated as Tue/Fri
+       Tue 13/10 Fri 16/10 Tue 20/10 Fri 23/10 Tue 27/10 Fri 30/10
+[PASS] Repayment on Thu 08 Oct leaves all due dates unchanged
+       Thu 08/10 Mon 12/10 Thu 15/10 Mon 19/10 Thu 22/10 Mon 26/10
+[PASS] Disbursement on Sunday 11 Oct is rejected
+       POST loans?command=calculateLoanSchedule -> HTTP 403: ['The expected disbursement date cannot be on a non working day']
+[PASS] Weekly product WC4W unchanged: every Monday
+       Mon 12/10 Mon 19/10 Mon 26/10 Mon 02/11
+[PASS] Hilton HBW4 unchanged: every 2 weeks
+       Mon 19/10 Mon 02/11 Mon 16/11 Mon 30/11 Mon 14/12 Mon 28/12
+[PASS] Setting OFF: stock behaviour (dates cycle through the week)
+       Thu 15/10 Mon 19/10 Wed 21/10 Sat 24/10 Tue 27/10 Fri 30/10
+[PASS] Setting ON again: Mon/Thu pairs
+       Thu 15/10 Mon 19/10 Thu 22/10 Mon 26/10 Thu 29/10 Mon 02/11
+[FAIL] New loan Mon 12 Oct with holiday Thu 22 Oct: that payment moves to Mon 26, pair kept
+       Thu 15/10 Mon 19/10 Mon 26/10 Thu 29/10 Mon 02/11 Thu 05/11
+[FAIL] Existing Mon 05 Oct loan after the holiday job (success): Thu 22 Oct moved to Mon 26, pair kept
+       Thu 08/10 Mon 12/10 Thu 15/10 Mon 19/10 Mon 26/10 Thu 29/10
+[PASS] Existing Mon-disbursed loan after holiday job: still alternating, no date twice, nothing on 22 Oct
+       Thu 08/10 Mon 12/10 Thu 15/10 Mon 19/10 Mon 26/10 Thu 29/10
+[PASS] Existing Tue-disbursed loan after holiday job: still alternating, no date twice, nothing on 22 Oct
+       Fri 09/10 Tue 13/10 Fri 16/10 Tue 20/10 Fri 23/10 Tue 27/10
+[PASS] Existing Wed-disbursed loan after holiday job: still alternating, no date twice, nothing on 22 Oct
+       Sat 10/10 Wed 14/10 Sat 17/10 Wed 21/10 Sat 24/10 Wed 28/10
+[PASS] Existing Thu-disbursed loan after holiday job: still alternating, no date twice, nothing on 22 Oct
+       Mon 12/10 Thu 15/10 Mon 19/10 Mon 26/10 Thu 29/10 Mon 02/11
+[PASS] Existing Fri-disbursed loan after holiday job: still alternating, no date twice, nothing on 22 Oct
+       Tue 13/10 Fri 16/10 Tue 20/10 Fri 23/10 Tue 27/10 Fri 30/10
+[PASS] Existing Sat-disbursed loan after holiday job: still alternating, no date twice, nothing on 22 Oct
+       Wed 14/10 Sat 17/10 Wed 21/10 Sat 24/10 Wed 28/10 Sat 31/10
+       interest 2HB4: total interest 15.0, total repayment 115.0, 6 repayments, last Thu 05/11
+       interest WC4B: total interest 15.78, total repayment 115.78, 8 repayments, last Thu 12/11
+       interest 2H8B: total interest 27.58, total repayment 127.58, 14 repayments, last Thu 03/12
+
+18/26 checks passed
